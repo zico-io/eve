@@ -1,5 +1,12 @@
 # eve
 
+## 0.76.2
+
+### Patch Changes
+
+- 91f4b68: Add `modelOptions.promptCache` for models eve calls directly. `promptCache: { anthropic: { ttl: "1h" } }` switches eve's Anthropic cache breakpoints to a 1-hour lifetime. `promptCache: { anthropic: {} }` turns breakpoints on for an Anthropic model eve can't recognize from its id, such as a Bedrock application inference profile.
+- c160b22: A session that replaces a retired stranded session names the session it replaced in `ctx.session.predecessor` (also on dynamic resolver contexts) and `session.started` `data.predecessor` (`{ sessionId }`). The new `transcriptReducer()` in `eve/client` folds a session's stream into its user and completed assistant text since the last clear; combine it with `sessions.attach(predecessor.sessionId).stream()` from `eve/server` in a `session.started` user-role dynamic instruction to give the replacement the earlier conversation.
+
 ## 0.76.1
 
 ### Patch Changes
