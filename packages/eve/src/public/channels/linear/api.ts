@@ -56,11 +56,18 @@ export interface LinearExternalUrl {
   url: string;
 }
 
+/** One step of an Agent Session plan, rendered as a checklist in Linear. */
+export interface LinearAgentPlanStep {
+  content: string;
+  status: "pending" | "inProgress" | "completed" | "canceled";
+}
+
 export interface LinearAgentSessionUpdateInput {
   addedExternalUrls?: readonly LinearExternalUrl[];
   externalLink?: string;
   externalUrls?: readonly LinearExternalUrl[];
-  plan?: JsonObject;
+  /** Replaces the whole plan; Linear does not support updating a single step. */
+  plan?: readonly LinearAgentPlanStep[];
   removedExternalUrls?: readonly string[];
 }
 

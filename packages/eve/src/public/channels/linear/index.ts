@@ -10,6 +10,7 @@ export {
   type LinearAgentActivityCreateInput,
   type LinearAgentActivityRecord,
   type LinearAgentActivitySignal,
+  type LinearAgentPlanStep,
   type LinearAgentSessionRecord,
   type LinearAgentSessionUpdateInput,
   type LinearApiOptions,
